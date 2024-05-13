@@ -1,0 +1,17 @@
+query menghitung total
+SELECT sf.Exca, SUM(temporary.tonase) AS Total_Tonase
+FROM temporary
+INNER JOIN setting_dt AS dt ON temporary.setting_dt = dt.id_setting_dt
+INNER JOIN setting_fleet as sf ON dt.id_setting_fleet = sf.Id_setting
+GROUP BY sf.Exca;
+
+
+menggabungkan total berdasarkan nama dt,loading,dumping
+SELECT dt.Nama_DT, SUM(temporary.tonase) AS Total_Tonase
+FROM temporary
+INNER JOIN setting_dt AS dt ON temporary.setting_dt = dt.id_setting_dt
+GROUP BY dt.Nama_DT, temporary.loading_point,temporary.dumping_point;
+
+
+menghitung ritase
+SELECT DATE_FORMAT(created, '%Y-%m-%d %H:00:00') AS hour, COUNT(*) AS ritase_per_hour FROM temporary WHERE setting_dt = 1 GROUP BY hour ORDER BY hour;
