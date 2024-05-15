@@ -1,7 +1,7 @@
 <!-- By : SATRIA MULYA ADIWARDANA -->
 <!-- HAK CIPTA BOSKU -->
 <?php
-include "config.php";
+include "../config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
