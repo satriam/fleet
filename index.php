@@ -5,10 +5,10 @@
 <?php
  $toko = mysqli_query($conn,"SELECT * FROM fleet_info ");
  if (mysqli_num_rows($toko) > 0) {
-    var_dump($toko);
      // Data ditemukan, mengambil data
      if ($row = mysqli_fetch_assoc($toko)) {
          $Tanggal = $row['Tanggal'];
+         var_dump($Tanggal);
          $Grup = $row['Grup'];
          $Shift = $row['Shift'];
 
