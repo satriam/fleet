@@ -54,9 +54,9 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
     <!--<script src="assets/js/jquery.slim.min.js"></script>-->
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="assets/DataTables/datatables.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../assets/DataTables/datatables.min.js"></script>
 
     <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
