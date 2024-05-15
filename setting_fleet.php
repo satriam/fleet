@@ -1,4 +1,257 @@
-<?php include 'template/header.php';?>
+<!-- By : SATRIA MULYA ADIWARDANA -->
+<!-- HAK CIPTA BOSKU -->
+<?php
+include "config.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dispatch Mining Fleet</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="icon.ico" type="image/ico">
+  <link href="assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" /> -->
+  <link rel="stylesheet" type="text/css" href="/assets/DataTables/datatables.min.css"/>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> -->
+<!-- Bootstrap CSS -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<!-- driver js -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
+
+  
+ 
+ 
+  <style>
+      .btn-group-xs > .btn, .btn-xs {
+  padding: .25rem .4rem;
+  font-size: .875rem;
+  line-height: .5;
+  border-radius: .2rem;
+}
+.card{
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgb(17 26 104 / 10%);
+}
+.card-header{
+  border-radius: 15px 15px 0px 0px !important;
+}
+.form-control{
+  border-radius: 15px;
+}
+.btn{
+  border-radius: 15px;
+}
+button.buttons-html5{
+  padding: .25rem .4rem !important;
+  font-size: .875rem !important;
+  line-height: .5 !important;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Penambahan bayangan */
+}
+
+.act-btn {
+  background: green;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-decoration: none;
+  transition: ease all 0.3s;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
+
+.act-btn:hover {
+  background: blue;
+  transform: scale(1.1);
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  bottom: 70px;
+  right: 10px;
+  background-color: rgba(255, 254, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Penambahan bayangan */
+  border-radius: 10px;
+  transition: ease all 0.3s;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px;
+  width:150px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.menu.active {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+
+
+       
+
+
+
+
+<div id="unlockedContent">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-purple text-white shadow-sm sticky-top d-md-none d-lg-none d-xl-none">
+  <a class="navbar-brand" href="https://satriam.github.io" target=_blank><i class="fa fa-truck mr-1">REHANDLING BUKIT ASAM</i><b>
+ </b></a>
+  <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php"><i class="fa fa-desktop text-purple mr-2"></i>Dispatch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="setting_fleet.php"><i class="fa fa-tasks text-purple mr-2" aria-hidden="true"></i>Setting Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="setting_dt.php"><i class="fa fa-tasks text-purple mr-2" aria-hidden="true"></i>Setting Dump Truck</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="overviewmitra.php" target = "_blank"><i class="fa fa-handshake text-purple mr-2" aria-hidden="true"></i>Overview Mitra</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="overviewstatus.php" target = "_blank"><i class="fa fa-chart-line text-purple mr-2" aria-hidden="true"></i>Overview Status</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="overviewexca.php" target = "_blank"><i class="fa fa-tasks text-purple mr-2" aria-hidden="true"></i>Overview Exca</a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="unit.php"><i class="fa fa-car text-purple mr-2" aria-hidden="true"></i>Unit Exca</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="unit_dt.php"><i class="fa fa-car text-purple mr-2" aria-hidden="true"></i>Unit Dump Truck</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="jarak.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Jarak</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="loading.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Loading</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="dumping.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Dumping</a>-->
+                    <!--</li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="laporan.php"><i class="fa fa-table text-purple mr-2"></i>Laporan</a>
+                    </li>
+                  
+                </ul>
+            </div>
+</nav>
+
+<div class="bg-purple text-center py-2 shadow-sm sticky-top d-none d-md-block">
+<a class="navbar-brand text-white" href="https://satriam.github.io" target=_blank><i class="fa fa-truck mr-1"> REHANDLING BUKIT ASAM</i><b>
+  </b></a>
+</div>
+<br>
+
+<div class="container-fluid">
+
+  <div class="row">
+  
+    <div class="col-md-3 mb-2 d-none d-md-block" >
+        <div class="card"  id="nav">
+            <div class="card-header bg-purple">
+                <div class="card-tittle text-white">Hallo, <b>DISPATCHER</b></div>
+            </div>
+            <div class="card-body">
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="dispatcher">
+                        <a class="nav-link" href="index.php"><i class="fa fa-desktop text-purple mr-2"></i>Dispatch</a>
+                    </li>
+                    <li class="nav-item" id="settingfleet">
+                        <a class="nav-link" href="setting_fleet.php"><i class="fa fa-tasks text-purple mr-2" aria-hidden="true"></i>Setting Fleet</a>
+                    </li>
+                    <li class="nav-item" id="settingdt">
+                        <a class="nav-link" href="setting_dt.php"><i class="fa fa-truck text-purple mr-2" aria-hidden="true"></i>Setting Dump Truck</a>
+                    </li>
+                                         <li class="nav-item">
+                        <a class="nav-link" href="overviewmitra.php" target = "_blank"><i class="fa fa-handshake text-purple mr-2" aria-hidden="true"></i>Overview Mitra</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="overviewstatus.php" target = "_blank"><i class="fa fa-chart-line text-purple mr-2" aria-hidden="true"></i>Overview Status</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="overviewexca.php" target = "_blank"><i class="fa fa-tasks text-purple mr-2" aria-hidden="true"></i>Overview Exca</a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="unit.php"><i class="fa fa-car text-purple mr-2" aria-hidden="true"></i>Unit Exca</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="unit_dt.php"><i class="fa fa-car text-purple mr-2" aria-hidden="true"></i>Unit Dump Truck</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item" id="jarak">-->
+                    <!--    <a class="nav-link" href="jarak.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Jarak</a>-->
+                    <!--</li>-->
+                    <!-- <li class="nav-item">-->
+                    <!--    <a class="nav-link" href="loading.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Loading</a>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item">-->
+                    <!--    <a class="nav-link" href="dumping.php"><i class="fa fa-location-arrow text-purple mr-2"></i>Dumping</a>-->
+                    <!--</li>-->
+                    <li class="nav-item" id="laporan">
+                        <a class="nav-link" href="laporan.php"><i class="fa fa-table text-purple mr-2"></i>Laporan</a>
+                    </li>
+                 
+                </ul>
+         </div>
+    </div>
+  </div>
+  <div class="floating-button">
+    <a class="act-btn" onclick="toggleMenu()"><i class="fa fa-question" aria-hidden="true"></i></a>
+    <div class="menu">
+        <a class="menu-item" onclick="handleMenuItem('Menu')">Menu</a>
+        <a href="#" class="menu-item" onclick="handleMenuItem('Laporan')">Laporan</a>
+        <a href="#" class="menu-item" onclick="handleMenuItem('Option 3')">Option 3</a>
+    </div>
+</div>
+
+
  <div class="col-md-9 mb-2">
     <div class="row">
 
@@ -521,284 +774,5 @@ if (isset($_POST['add_info'])) {
 ?>
 
 
-</div><!-- end row -->
-</div> <!-- end container fluid -->
-<footer class="text-center mb-0 py-3">
-    <p class="text-muted small mb-0">Copyright &copy; <?php echo  date("Y");?> <a href="https://satriam.github.io" style="text-decoration:none;">
-    <b>Satria Mulya</b></a>. All Rights Reserved</p>
-</footer>
-</div>
-<!-- Unlock Modal -->
-<div class="modal fade" id="unlockModal" tabindex="-1" aria-labelledby="unlockModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="unlockModalLabel">Enter Password</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input type="password" id="unlockPassword" class="form-control" placeholder="Enter Password">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="unlockButton">Unlock</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Lock Popup Modal -->
-<div class="modal fade" id="lockPopupModal" tabindex="-1" aria-labelledby="lockPopupModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="lockPopupModalLabel">System Locked</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>The system is locked. Please unlock the system to access the content.</p>
-                <p>Trouble? <a href="https://wa.me/6285156145066" target="_blank">Chat Admin</a> </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Locked Content -->
-<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100" id="lockedMessage">
-    <div class="h-1 bd-highlight"><img src="../assets/img/icon.png" width="80%" height="80%"></div>
-    <div class="h-1 bd-highlight"><p class="text-muted small mb-0">Copyright &copy; <?php echo  date("Y");?> <a href="https://satriam.github.io" style="text-decoration:none;">
-    <b>Satria Mulya</b></a>. All Rights Reserved</p></div>
-    
-  
-</div>
-<script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
-    <!--<script src="assets/js/jquery.slim.min.js"></script>-->
-    <script src="/assets/js/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="/assets/DataTables/datatables.min.js"></script>
-
-    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script> -->
-    <script type="text/javascript">
-      $(document).ready(function() {
-    $('#table').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-} );
-$(document).ready(function() {
-    $('#table_data').DataTable( {
-    } );
-} );
-    </script>
-
-    <script type = "text/javascript">
-
-$(document).ready(function() {
-    $(".tabell-data").DataTable( {
-    } );
-} );
-    </script>
-
-<script type="text/javascript">
- $(document).ready(function() {
-     $(".js-example-responsive").select2();
- });
-</script>
-
-
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function () {
-    const unlockPasswordInput = document.getElementById('unlockPassword');
-    const unlockButton = document.getElementById('unlockButton');
-    const unlockModal = new bootstrap.Modal(document.getElementById('unlockModal'), {});
-    const lockPopupModal = new bootstrap.Modal(document.getElementById('lockPopupModal'), {}); // Modal for lock popup
-    const lockedMessage = document.getElementById('lockedMessage'); // Reference to the locked message element
-    document.getElementById("unlockPassword").addEventListener("keyup", function(event) {
-        if (event.key === "Enter") {
-            // Trigger the action you want here, for example, clicking the unlock button
-            document.getElementById("unlockButton").click();
-        }
-    });
-    // Function to lock the system
-    function lockSystem() {
-        showLockedContent();
-        // You can add additional logic here if needed
-    }
-
-    // Function to show locked content and hide unlocked content
-    function showLockedContent() {
-        unlockedContent.classList.add('d-none');
-        lockedMessage.classList.remove('d-none'); // Show the locked message
-    }
-
-    // Function to hide locked content
-    function hideLockedContent() {
-        lockedMessage.classList.add('d-none'); // Hide the locked message
-        lockedMessage.classList.remove('d-flex'); // Hide the locked message
-
-    }
-
-    // Function to show unlocked content and hide locked content
-    function showUnlockedContent() {
-        hideLockedContent();
-        unlockedContent.classList.remove('d-none');
-        unlockModal.hide(); // Hide the modal when the password is correct
-    }
-
-    // Function to clear input value in the modal
-    function clearModalInput() {
-        unlockPasswordInput.value = ''; // Clear the input value
-    }
-
-    // Function to check if the system is locked and update the UI accordingly
-    function checkLockStatus() {
-        const lockTime = localStorage.getItem('?hs78gjdhf9873hfjdbbc7');
-        const currentTime = new Date().getTime();
-        const sixHoursInMillis = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
-
-        if (lockTime && currentTime - lockTime < sixHoursInMillis) {
-            showUnlockedContent();
-        } else {
-            lockSystem();
-            lockPopupModal.show(); // Show lock popup modal after 6 hours
-        }
-    }
-
-    // Check the lock status when the page loads
-    checkLockStatus();
-
-    // Event listener for the unlock button
-    // unlockButton.addEventListener('click', function () {
-    //     const enteredPassword = unlockPasswordInput.value;
-    //     // Add your password validation logic here
-    //     // For simplicity, let's assume the correct password is 'password'
-    //     if (enteredPassword === 'rehandling2023!') {
-    //         localStorage.setItem('lockTime', new Date().getTime());
-    //         showUnlockedContent();
-    //         hideLockedContent(); // Hide the locked message when unlocked
-    //     } else {
-    //         alert('Incorrect Password. Please try again.');
-    //     }
-    // });
-
-
-// Event listener for the unlock button
-unlockButton.addEventListener('click', function () {
-    const enteredPassword = unlockPasswordInput.value;
-
-    // Kirim data ke server untuk verifikasi
-    fetch('verify_password.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `password=${encodeURIComponent(enteredPassword)}`,
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        if (data.success) {     
-            // Dapatkan informasi sistem operasi dan browser
-            const os = window.navigator.platform;
-            const browser = window.navigator.userAgent;
-
-    // Introduce a delay before making the next request
-    setTimeout(() => {
-        // Kirim data ke server PHP menggunakan metode POST
-        fetch('save_computer_info.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `operatingSystem=${encodeURIComponent(os)}&browser=${encodeURIComponent(browser)}`,
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(message => {
-            console.log(message);
-            // Lakukan tindakan selanjutnya setelah data disimpan
-            localStorage.setItem('?hs78gjdhf9873hfjdbbc7', new Date().getTime());
-            showUnlockedContent();
-            hideLockedContent(); 
-        })
-        .catch(error => console.error('Failed to save computer info:', error.message));
-    }, 1000); // Adjust the delay (in milliseconds) as needed
-}
-               
-  else {
-            alert('Gagal Masuk! ' + data.error); // Include specific error message
-        }
-    })
-    .catch(error => console.error('Failed to verify password:', error.message));
-});
-
-
-
-    // Event listener for the "OK" button on the lock popup modal
-    const lockPopupOkButton = document.querySelector('#lockPopupModal .btn-primary');
-    lockPopupOkButton.addEventListener('click', function () {
-        unlockModal.show(); // Show the password modal
-    });
-
-    // Event listener for the 'hidden.bs.modal' event on the unlock modal
-    unlockModal._element.addEventListener('hidden.bs.modal', clearModalInput);
-
-    // Set up a timer to check the lock status every 10 seconds
-    setInterval(checkLockStatus, 60000); // Check every 10 seconds
-});
-
-</script>
-
-
-<script>
-    const driver = window.driver.js.driver;
-    function toggleMenu() {
-    var menu = document.querySelector('.menu');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-
-function handleMenuItem(option) {
-    
-    if (option === 'Menu') {
-        const driverObj = driver({
-  showProgress: true,
-  steps: [
-    { element: '#nav', popover: { title: 'Sidebar', description: 'Bagian ini Berisi data menu yang digunakan oleh dispatcher untuk melakukan semua setting data.', side: "left", align: 'start' }},
-    { element: '#dispatcher', popover: { title: 'Menu Dispatch', description: 'Menu ini digunakan untuk dispatch melakukan input data perDT melakukan dumping.', side: "right", align: 'start' }},
-    { element: '#settingfleet', popover: { title: 'Menu Setting Fleet', description: 'Menu Setting Fleet digunakan untuk menginput data fleet exca yang akan beroperasi dan lokasi exca oleh dispatcher', side: "right", align: 'start' }},
-    { element: '#settingdt', popover: { title: 'Menu Setting Dump Truck', description: 'Menu Setting Dump Truck digunakan untuk menginputkan data dump truck yang akan beroperasi dan dengan exca mana dump truck melakukan loading', side: "left", align: 'start' }},
-    { element: '#unit', popover: { title: 'Menu Unit', description: 'Menu unit digunakan untuk menginputkan data Exca jika terdapat exca baru', side: "right", align: 'start' }},
-    { element: '#jarak', popover: { title: 'Menu Jarak', description: 'Menu Jarak digunakan untuk menginputkan data Jarak Antara Loading Point dan Dumping Point.', side: "right", align: 'start' }},
-    { element: '#laporan', popover: { title: 'Menu Laporan', description: 'Menu Laporan digunakan untuk melihat data laporan yang sudah diinputkan oleh dispatcher, rekap laporan akan masuk ke menu laporan di akhir shift', side: "right", align: 'start' }},
-    { popover: { title: 'Selamat Bekerja!', description: 'jika ada pertanyaan, silahkan tanyakan pada admin' } }
-  ]
-});
-
-driverObj.drive();
-    }
-}
-</script>
-
-
-
-</body>
-</html>
+<?php include 'template/footer.php'?>
