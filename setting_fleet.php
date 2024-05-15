@@ -519,3 +519,7 @@ if (isset($_POST['add_info'])) {
 	}
 
 ?>
+
+
+
+<?php include 'template/footer.php';?>
