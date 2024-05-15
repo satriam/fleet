@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$username = "root";
-$password = "";
+$username = "rehandlingba";
+$password = "Rehandlingbukitasam0909#";
 $dbname = "rehandlingba_fleet";
 
 
