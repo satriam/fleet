@@ -8,7 +8,7 @@
      // Data ditemukan, mengambil data
      if ($row = mysqli_fetch_assoc($toko)) {
          $Tanggal = $row['Tanggal'];
-         var_dump($Tanggal);
+       
          $Grup = $row['Grup'];
          $Shift = $row['Shift'];
 
